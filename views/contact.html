@@ -1,0 +1,68 @@
+<!DOCTYPE HTML>
+<html>
+<head>
+<met charset="utf-8">
+<title>Age Photography</title>
+<link rel="stylesheet" type="text/css" href="../css/style.css"/>
+<script async src="../lib/jquery-3.2.1.min.js" ></script>
+<script  async src="../js/Jq.js" ></script>
+</head>
+<body class="contact_page">
+  <?php
+    $name = $_POST['name'];
+    $email = $_POST['email'];
+    $message = $_POST['message'];
+    $from = 'From: PortfolioContact';
+    $to = 'contact@agephotography.us';
+    $subject = 'Hello';
+    $human = $_POST['human'];
+
+    $body = "From: $name\n E-Mail: $email\n Message:\n $message";
+
+  ?>
+  <nav>
+    <a id="home" href="#homeSection">Home</a>
+    <a id="portfolio" href="#portfolioSection">Portfolio</a>
+    <a id="contact" href="#contactSection">Contact</a>
+    <a id="about" href="#aboutSection">About</a>
+    <a id="pricing" href="#pricingSection">Pricing</a>
+    <a id="phlog" href="#phlogSection">Phlog</a>
+  </nav>
+  <section class="body">
+
+    <form method="post" action="index.php">
+
+    <label>Name</label>
+    <input name="name" placeholder="Type Here">
+
+    <label>Email</label>
+    <input name="email" type="email" placeholder="Type Here">
+
+    <label>Message</label>
+    <textarea name="message" placeholder="Type Here"></textarea>
+
+    <label>What is 2+2?</label>
+    <input name="human" placeholder="Type Here">
+
+    <?php
+
+    if ($_POST['submit'] && $human == '4') {
+        if (mail ($to, $subject, $body, $from)) {
+      echo '<p>Your message has been sent!</p>';
+     } else {
+        echo '<p>Something went wrong, go back and try again!</p>';
+     }
+    } else if ($_POST['submit'] && $human != '4') {
+    echo '<p>You answered the anti-spam question incorrectly!</p>';
+    }
+
+    ?>
+    <input id="submit" name="submit" type="submit" value="Submit">
+
+    </form>
+  </section>
+  <section class="footertwo">
+    <a href="http://www.gabrielencinas.com"><p> Designed By: Gabriel Encinas &copy; 2017</p></a>
+  </section>
+</body>
+</html>
