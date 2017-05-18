@@ -18,7 +18,9 @@ i {
 
 i:hover {
     background-color: rgba(0,0,0,0.5);
-    border-radius: 8px;
+    color: rgba(255,255,255,1);
+    border-radius: 800px;
+    line-height: 80%;
 }
 
 .slideshow { 
@@ -44,10 +46,22 @@ i:hover {
   background-repeat: no-repeat;
   opacity: 0;
   z-index: 0;
-  animation: imageAnimation 20s infinite; 
+/*  animation: imageAnimation 20s infinite; 
+*/}
+
+img {
+    z-index:8;
 }
 
-.slideshow li:nth-child(2) { 
+img.active {
+    z-index:10;
+}
+
+img.last-active {
+    z-index:9;
+}
+
+/*.slideshow li:nth-child(2) { 
   animation-delay: 4s; 
 }
 .slideshow li:nth-child(3) { 
@@ -59,7 +73,7 @@ i:hover {
 .slideshow li:nth-child(5) { 
   animation-delay: 16s; 
 }
-
+*/
 
 /*crappy slide animation*/
 /*@keyframes imageAnimation { */
@@ -80,7 +94,7 @@ i:hover {
 /*  }*/
 /*}*/
 
-@keyframes imageAnimation { 
+/*@keyframes imageAnimation { 
   0% { 
     opacity: 0; 
     animation-timing-function: ease-in;
@@ -95,7 +109,7 @@ i:hover {
   30% {
     opacity: 0
   }
-}
+}*/
 
 /* Older browser support - .no-cssanimations class added by modernizr */
 .no-cssanimations .slideshow li {
